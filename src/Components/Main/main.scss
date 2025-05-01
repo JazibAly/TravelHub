@@ -7,7 +7,7 @@
     --blackColor:hsl(201,33%, 16%);
     ---textColor: hsl(248, 4%,36%);
     ---whiteColorDean:hsl(0,0%,93%);
-    -----greyText: rgb(190,190,190);
+    ---greyText: rgb(190,190,190);
     ---inputColor: rgb(239, 239, 239);
     ---bodyColor: rgb(240,240, 246);
     ---cardBG: rgb(225, 225, 235);
@@ -52,16 +52,15 @@
             box-shadow: 0 2px 4px rgba(140,140,141,0.5);
             overflow: hidden;
             &:hover{
-                background:var(---cardHover);
-                box-shadow: 1 4px 4px rgba(85,85,114,0.5);
-                transition:.3s ease;
+                background: var(---cardHover);
+                box-shadow: 1px 4px 4px rgba(85,85,114,0.5);
+                transition: .3s ease;
             }
 
             .imgDiv{
                 height:180px;
                 width:100%;
                 overflow: hidden;
-
                 img{
                     height: 100%;
                     width: 100%;
@@ -103,8 +102,8 @@
                     justify-content: space-between;
                     padding: 1rem;
                     margin: 1rem 0;
-                    border-top: 1.5px solid var(---greyText);
-                    border-bottom: 1.5px solid var(---greyText);
+                    border-top: 1.5px solid grey;
+                    border-bottom: 1.5px solid grey;
 
                     .grade{
                         color: var(---textColor);
@@ -121,6 +120,7 @@
                             color: var(--whiteColor);
                             padding: 1px 10px;
                             font-size: 10px;
+                            margin-left: 5px;
                         }
                     }
 
@@ -149,6 +149,43 @@
                 }
                 
             }
+        }
+    }
+}
+
+// Media Queries---------------->
+
+
+@media screen and (min-width: 500px){
+    .title{
+        font-size: 1.5rem;
+        &::after{
+            width: 155px;
+        }
+    }
+
+    .secContent{
+        grid-template-columns: repeat(2, 1fr);
+
+        .singleDestination{
+            height: auto;
+        }
+    }
+}
+
+@media screen and (min-width: 840px){
+    .title{
+        font-size: 1.5rem;
+        &::after{
+            width: 155px;
+        }
+    }
+
+    .secContent{
+        grid-template-columns: repeat(3, 1fr);
+
+        .singleDestination{
+            height: auto;
         }
     }
 }

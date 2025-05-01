@@ -7,11 +7,12 @@
     --blackColor:hsl(201,33%, 16%);
     ---textColor: hsl(248, 4%,36%);
     ---whiteColorDean:hsl(0,0%,93%);
-    -----greyText: rgb(190,190,190);
+    ---greyText: rgb(190,190,190);
     ---inputColor: rgb(239, 239, 239);
     ---bodyColor: rgb(240,240, 246);
     ---cardBG: rgb(225, 225, 235);
 }
+
 
 .header{
     position: fixed;
@@ -42,7 +43,7 @@
     @media screen and (max-width: 768px) {
         .navBar{
             position: absolute;
-            background: var(--whiteColorDean);
+            background: var(---whiteColor);
             width: 80%;
             border-radius: 1rem;
             top: -500rem;
@@ -106,8 +107,66 @@
     }  
 }
     
+// Media Queries---------------->
+@media screen and (min-width: 769px){
+    .toggleNavbar, .closeNavbar{
+        display: none;
+    }
 
-            
+    .header{
+        padding: 1.5rem 2rem;
+
+        .navBar{
+            .navLists{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: row;
+
+                .navItem{
+                    .navLink{
+                        color: var(---textColor);
+                        font-size: 0.9rem;
+                        font-weight: 500;
+                        padding: 0 0.45rem;
+
+                        &:hover{
+                            color: var(--PrimaryColor);
+                        }
+
+                    }
+                }
+
+                .btn{
+                    margin-left: 1rem;
+                    a{
+                        color: var(--whiteColor);
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}
+        
+
+@media screen and (min-width: 960px){
+    .header{
+        .navBar{
+            .navLists{
+                .navItem{
+                    padding: 0 0.7rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1240px){
+    .header{
+        padding: 1rem 8.5rem;
+    }
+}
             
 
                 
