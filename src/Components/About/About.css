@@ -1,0 +1,194 @@
+:root {
+  /* Use the same color variables as the main site */
+  ---PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187,85%, 43%);
+  --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201,33%, 16%);
+  ---textColor: hsl(248, 4%,36%);
+  ---whiteColorDean: hsl(0,0%,93%);
+  ---greyText: rgb(190,190,190);
+  ---inputColor: rgb(239, 239, 239);
+  ---bodyColor: rgb(240,240, 246);
+  ---cardBG: rgb(225, 225, 235);
+}
+
+.about-section {
+  background: var(---bodyColor);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(140, 140, 141, 0.08);
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+  max-width: 1100px;
+}
+
+.about-header {
+  margin-bottom: 2.5rem;
+}
+
+.about-badge {
+  display: inline-block;
+  background: var(--SecondaryColor);
+  color: var(--whiteColor);
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 1.5rem;
+  padding: 0.4rem 1.2rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 8px rgba(140, 140, 141, 0.08);
+}
+
+.about-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-text {
+  flex: 1 1 320px;
+}
+
+.about-text h2 {
+  font-size: 2.1rem;
+  color: var(--blackColor);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.about-highlight {
+  color: var(--SecondaryColor);
+}
+
+.about-text p {
+  color: var(---textColor);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.about-illustration {
+  flex: 1 1 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-illustration img {
+  max-width: 220px;
+  width: 100%;
+  border-radius: 1.5rem;
+  background: var(---whiteColorDean);
+  box-shadow: 0 2px 8px rgba(140, 140, 141, 0.10);
+}
+
+.contact-section {
+  margin: 3rem 0 2.5rem 0;
+}
+
+.contact-badge {
+  display: inline-block;
+  background: var(--SecondaryColor);
+  color: var(--whiteColor);
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 1.5rem;
+  padding: 0.4rem 1.2rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 8px rgba(140, 140, 141, 0.08);
+}
+
+.contact-box {
+  background: var(---whiteColorDean);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(140, 140, 141, 0.08);
+  padding: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.contact-info {
+  min-width: 220px;
+  color: var(--blackColor);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.contact-form {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.7rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid var(---greyText);
+  background: var(---inputColor);
+  font-size: 1rem;
+  color: var(--blackColor);
+  resize: none;
+}
+
+.contact-form button.btn {
+  width: 120px;
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+.subscribe-section {
+  background: var(--SecondaryColor);
+  border-radius: 1.2rem;
+  padding: 2rem 1.5rem;
+  color: var(--whiteColor);
+  text-align: left;
+  margin-top: 2.5rem;
+  box-shadow: 0 2px 8px rgba(140, 140, 141, 0.08);
+}
+
+.subscribe-section h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.subscribe-form input {
+  flex: 1 1 220px;
+  padding: 0.7rem 1rem;
+  border-radius: 0.7rem;
+  border: none;
+  font-size: 1rem;
+  color: var(--blackColor);
+}
+
+.subscribe-form button.btn {
+  min-width: 120px;
+}
+
+.subscribe-desc {
+  color: var(---whiteColorDean);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .about-main {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .contact-box {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+} 
