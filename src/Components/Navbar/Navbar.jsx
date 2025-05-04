@@ -48,6 +48,14 @@ const Navbar = () => {
           <Link to="/contact" className="nav-item" onClick={() => setIsOpen(false)}>
             Contact
           </Link>
+          <Link to="/tours" className="nav-item" onClick={() => setIsOpen(false)}>
+            Tours
+          </Link>
+          {userName === 'admin' && (
+            <Link to="/admin" className="nav-item" onClick={() => setIsOpen(false)}>
+              Admin
+            </Link>
+          )}
           {userName ? (
             <>
               <span className="nav-item">Welcome, {userName}</span>

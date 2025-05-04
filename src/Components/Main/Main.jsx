@@ -1,105 +1,98 @@
-import React, {useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import "./main.css";
-import img1 from "../../Assets/img1.jpg";
-import img2 from "../../Assets/img2.jpg";
-import img3 from "../../Assets/img3.jpg";
-
 import { IoLocationSharp } from "react-icons/io5";
 import { FaClipboard } from "react-icons/fa6";
-
+import { useNavigate } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useLocation } from 'react-router-dom';
+import axios from "axios";
 
-const Data = [
-  {id:1,
-  imgSrc: img1,
-  destTitle: "Bali",
-  location: "Indonesia",
-  grade: "Cultural & Nature",
-  fees: "$700",
-  description: "Bali is a tropical paradise known for its stunning beaches, lush rice terraces, and vibrant culture. It's a top destination for relaxation and adventure.",
-  },
-  {id:2,
-  imgSrc: img2,
-  destTitle: "Paris",
-  location: "France",
-  grade: "Cultural & Romantic",
-  fees: "$1200",
-  description: "Paris, the City of Light, is famous for its art, fashion, and history. Explore iconic landmarks like the Eiffel Tower and Louvre Museum.",
-  },
-  {id:3,
-  imgSrc: img3,
-  destTitle: "Tokyo",
-  location: "Japan",
-  grade: "Cultural & Modern",
-  fees: "$1500",
-  description: "Tokyo is a bustling metropolis that seamlessly blends tradition and modernity. Experience its vibrant culture, technology, and cuisine.",
-  }
-]
+const API_URL = 'http://localhost:5000';
+
+// Helper to truncate description to 40 words
+function truncateDescription(text, wordLimit = 40) {
+  if (!text) return '';
+  const words = text.split(' ');
+  if (words.length <= wordLimit) return text;
+  return words.slice(0, wordLimit).join(' ') + '...';
+}
 
 const Main = () => {
+  const [tours, setTours] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    Aos.init({duration: 2000});
-  },[]);
+    Aos.init({ duration: 2000 });
+    fetchTours();
+  }, []);
 
-  const location = useLocation();
-  const hideNavAndFooter = location.pathname === '/login' || location.pathname === '/register';
+  const fetchTours = async () => {
+    try {
+      const res = await axios.get(`${API_URL}/api/tours`);
+      setTours(res.data);
+      setLoading(false);
+    } catch (err) {
+      console.error(err);
+      setLoading(false);
+    }
+  };
+
+  const handleTourClick = (tourId) => {
+    navigate(`/tour/${tourId}`);
+  };
+
+  if (loading) {
+    return <div className="loading">Loading tours...</div>;
+  }
 
   return (
     <section className="main container section">
-
       <div className="secTitle">
         <h3 data-aos="fade-right" className="title">
-          Most Visited Destinations
+          Available Tours
         </h3>
       </div>
 
       <div className="secContent grid">
-        {
-          Data.map(({id,imgSrc,destTitle,location,grade,fees,description})=>{
-            return(
-              <div data-aos="fade-up" key={id} className="singleDestination">
+        {tours.map((tour) => (
+          <div data-aos="fade-up" key={tour._id} className="singleDestination">
+            <div className="imgDiv">
+              <img src={tour.image || 'default-tour.jpg'} alt={tour.destination} />
+            </div>
 
-                <div className="imgDiv">
-                  <img src={imgSrc} alt={destTitle} />
+            <div className="cardInfo">
+              <h4 className="destTitle">{tour.destination}</h4>
+              <span className="continent flex">
+                <IoLocationSharp className="icon" />
+                <span className="name">{tour.location}</span>
+              </span>
+
+              <div className="fees flex">
+                <div className="grade">
+                  <span>{tour.duration}</span>
                 </div>
-
-                <div className="cardInfo">
-                  <h4 className="destTitle">
-                    {destTitle}
-                  </h4>
-                  <span className="continent flex">
-                    <IoLocationSharp className="icon"/>
-                    <span className="name">{location}</span>
-                  </span>
-
-                  <div className="fees flex">
-                    <div className="grade">
-                      <span>{grade}<small>+1</small></span>
-                    </div>
-                    <div className="price">
-                      <h5>{fees}</h5>
-                    </div>
-                  </div>
-
-                  <div className="desc">
-                      <p>{description}</p>
-                  </div>
-
-                  <button className="btn flex">
-                    DETAILS <FaClipboard className="icon"/>
-                  </button>
+                <div className="price">
+                  <h5>${tour.fees}</h5>
                 </div>
               </div>
-            )
-          })
-        }
-      </div>
 
+              <div className="desc">
+                <p>{truncateDescription(tour.description, 40)}</p>
+              </div>
+
+              <button 
+                className="btn flex"
+                onClick={() => handleTourClick(tour._id)}
+              >
+                DETAILS <FaClipboard className="icon" />
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
-}
+};
 
 export default Main;

@@ -1,0 +1,233 @@
+.admin-dashboard {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-dashboard h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.success-message {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.tour-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.btn-submit {
+  padding: 1rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+  background: #0056b3;
+}
+
+/* Admin Panel Layout */
+.admin-panel-container {
+  display: flex;
+  min-height: 80vh;
+  background: #f7f8fa;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 1100px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+/* Sidebar */
+.admin-sidebar {
+  min-width: 180px;
+  background: #232946;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  border-radius: 10px 0 0 10px;
+  gap: 1rem;
+}
+
+.admin-sidebar button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.admin-sidebar button.active,
+.admin-sidebar button:hover {
+  background: #eebbc3;
+  color: #232946;
+}
+
+/* Main Content */
+.admin-main-content {
+  flex: 1;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 0 10px 10px 0;
+  min-width: 0;
+}
+
+.admin-main-content h2 {
+  margin-bottom: 1.5rem;
+  color: #232946;
+}
+
+/* Table/List */
+.tour-list {
+  margin-top: 1.5rem;
+  overflow-x: auto;
+}
+
+.tour-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f7f8fa;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tour-list th, .tour-list td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tour-list th {
+  background: #eebbc3;
+  color: #232946;
+  font-weight: 600;
+}
+
+.tour-list tr:last-child td {
+  border-bottom: none;
+}
+
+.tour-list button {
+  background: #232946;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tour-list button:hover {
+  background: #eebbc3;
+  color: #232946;
+}
+
+.tour-list .btn-delete {
+  background: #d7263d;
+  color: #fff;
+}
+
+.tour-list .btn-delete:hover {
+  background: #ff616d;
+  color: #232946;
+}
+
+/* Form Buttons */
+.btn-submit, .btn-cancel {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-submit {
+  background: #232946;
+  color: #fff;
+  margin-right: 1rem;
+}
+
+.btn-submit:hover {
+  background: #eebbc3;
+  color: #232946;
+}
+
+.btn-cancel {
+  background: #e0e0e0;
+  color: #232946;
+}
+
+.btn-cancel:hover {
+  background: #bdbdbd;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .admin-panel-container {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    flex-direction: row;
+    border-radius: 10px 10px 0 0;
+    min-width: 0;
+    justify-content: space-around;
+    padding: 1rem 0.5rem;
+  }
+  .admin-main-content {
+    border-radius: 0 0 10px 10px;
+    padding: 1rem;
+  }
+} 
+
