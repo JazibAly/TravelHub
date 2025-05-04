@@ -9,6 +9,7 @@ import { FaClipboard } from "react-icons/fa6";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { useLocation } from 'react-router-dom';
 
 const Data = [
   {id:1,
@@ -42,6 +43,9 @@ const Main = () => {
   useEffect(() => {
     Aos.init({duration: 2000});
   },[]);
+
+  const location = useLocation();
+  const hideNavAndFooter = location.pathname === '/login' || location.pathname === '/register';
 
   return (
     <section className="main container section">
