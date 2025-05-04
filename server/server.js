@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const config = require('./config');
 const User = require('./models/User');
 const Tour = require('./models/Tour');
+const Blog = require('./models/Blog');
 
 const app = express();
 
@@ -258,6 +259,96 @@ app.put('/api/tours/:id', async (req, res) => {
     } catch (err) {
         console.error('Tour update error:', err);
         res.status(500).json({ msg: 'Server error', error: err.message });
+    }
+});
+
+// Blog Management Routes
+// Get all blogs
+app.get('/api/blogs', async (req, res) => {
+    try {
+        const blogs = await Blog.find().sort({ createdAt: -1 });
+        res.json(blogs);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
+// Get single blog
+app.get('/api/blogs/:id', async (req, res) => {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        return res.status(400).json({ msg: 'Invalid blog ID format' });
+    }
+    try {
+        const blog = await Blog.findById(req.params.id);
+        if (!blog) {
+            return res.status(404).json({ msg: 'Blog not found' });
+        }
+        res.json(blog);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
+// Add new blog (Admin only)
+app.post('/api/blogs', async (req, res) => {
+    try {
+        const { title, image, content } = req.body;
+        if (!title || !content) {
+            return res.status(400).json({ msg: 'Title and content are required' });
+        }
+        const newBlog = new Blog({
+            title,
+            image: image || 'default-blog.jpg',
+            content
+        });
+        const blog = await newBlog.save();
+        res.json(blog);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
+// Edit blog (Admin only)
+app.put('/api/blogs/:id', async (req, res) => {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        return res.status(400).json({ msg: 'Invalid blog ID format' });
+    }
+    try {
+        const { title, image, content } = req.body;
+        const updateFields = {
+            title,
+            image,
+            content
+        };
+        Object.keys(updateFields).forEach(key => updateFields[key] === undefined && delete updateFields[key]);
+        const blog = await Blog.findByIdAndUpdate(req.params.id, updateFields, { new: true });
+        if (!blog) {
+            return res.status(404).json({ msg: 'Blog not found' });
+        }
+        res.json(blog);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
+// Delete blog (Admin only)
+app.delete('/api/blogs/:id', async (req, res) => {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        return res.status(400).json({ msg: 'Invalid blog ID format' });
+    }
+    try {
+        const deleted = await Blog.findByIdAndDelete(req.params.id);
+        if (!deleted) {
+            return res.status(404).json({ msg: 'Blog not found' });
+        }
+        res.json({ msg: 'Blog removed' });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
     }
 });
 

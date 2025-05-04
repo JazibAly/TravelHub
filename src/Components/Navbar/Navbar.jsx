@@ -42,14 +42,14 @@ const Navbar = () => {
           <Link to="/services" className="nav-item" onClick={() => setIsOpen(false)}>
             Services
           </Link>
-          <Link to="/gallery" className="nav-item" onClick={() => setIsOpen(false)}>
-            Gallery
-          </Link>
           <Link to="/contact" className="nav-item" onClick={() => setIsOpen(false)}>
             Contact
           </Link>
           <Link to="/tours" className="nav-item" onClick={() => setIsOpen(false)}>
             Tours
+          </Link>
+          <Link to="/blogs" className="nav-item" onClick={() => setIsOpen(false)}>
+            Blogs
           </Link>
           {userName === 'admin' && (
             <Link to="/admin" className="nav-item" onClick={() => setIsOpen(false)}>

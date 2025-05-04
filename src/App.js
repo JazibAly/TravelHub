@@ -7,13 +7,14 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Services from './components/Services/Services';
-import Gallery from './components/Gallery/Gallery';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import AdminDashboard from './components/Admin/AdminDashboard';
 import Main from './components/Main/Main';
 import TourDetails from './components/Tour/TourDetails';
 import AdminPanel from './components/Admin/AdminPanel';
+import Blogs from './components/Blog/Blogs';
+import BlogDetails from './components/Blog/BlogDetails';
 
 function AppContent() {
   const location = useLocation();
@@ -31,11 +32,12 @@ function AppContent() {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/tours" element={<Main />} />
         <Route path="/tour/:id" element={<TourDetails />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/:id" element={<BlogDetails />} />
       </Routes>
       {!hideNavAndFooter && <Footer />}
     </div>

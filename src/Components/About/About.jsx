@@ -13,11 +13,11 @@ const About = () => {
           </div>
           <div className="about-illustration">
             {/* Replace src with your own illustration if available */}
-            <img src="https://cdn.pixabay.com/photo/2017/01/31/13/14/earth-2025489_1280.png" alt="Travel Illustration" />
+            <img src="https://th.bing.com/th/id/R.5ce73fb928695ecfc31f30e548915394?rik=Z8lsfSiGLWORkg&pid=ImgRaw&r=0" alt="Travel Illustration" />
           </div>
         </div>
       </div>
-      <div className="contact-section">
+      {/* <div className="contact-section">
         <span className="contact-badge">Contact Us</span>
         <div className="contact-box">
           <div className="contact-info">
@@ -32,7 +32,7 @@ const About = () => {
             <button className="btn" type="submit">Submit</button>
           </form>
         </div>
-      </div>
+      </div> */}
       <div className="subscribe-section">
         <h3>Subscribe to get Useful Traveling Information</h3>
         <form className="subscribe-form">

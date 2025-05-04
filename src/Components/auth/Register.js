@@ -105,7 +105,7 @@ const Register = () => {
                                     Register
                                 </button>
                             </form>
-                            <p className="mt-3 text-center">
+                            <p className="mt-3">
                                 Already have an account?{' '}
                                 <button
                                     className="btn btn-link p-0"

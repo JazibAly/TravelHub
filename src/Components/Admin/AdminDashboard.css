@@ -1,3 +1,19 @@
+:root{
+  ---PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor:
+  hsl(187,85%, 43%);
+  --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor:hsl(201,33%, 16%);
+  ---textColor: hsl(248, 4%,36%);
+  ---whiteColorDean:hsl(0,0%,93%);
+  ---greyText: rgb(190,190,190);
+  ---inputColor: rgb(239, 239, 239);
+  ---bodyColor: rgb(240,240, 246);
+  ---cardBG: rgb(225, 225, 235);
+  ---cardHover: rgb(255, 255, 255);
+}
+
 .admin-dashboard {
   max-width: 800px;
   margin: 2rem auto;
@@ -85,7 +101,8 @@
 /* Sidebar */
 .admin-sidebar {
   min-width: 180px;
-  background: #232946;
+  /* background: #232946; */
+  background: var(--SecondaryColor);
   display: flex;
   flex-direction: column;
   padding: 2rem 1rem;
@@ -107,22 +124,22 @@
 
 .admin-sidebar button.active,
 .admin-sidebar button:hover {
-  background: #eebbc3;
-  color: #232946;
+  background: var(---whiteColorDean);
+  color: var(--blackColor);
 }
 
 /* Main Content */
 .admin-main-content {
   flex: 1;
   padding: 2rem;
-  background: #fff;
+  background: var(--whiteColor);
   border-radius: 0 10px 10px 0;
   min-width: 0;
 }
 
 .admin-main-content h2 {
   margin-bottom: 1.5rem;
-  color: #232946;
+  color: var(--blackColor);
 }
 
 /* Table/List */
@@ -146,8 +163,9 @@
 }
 
 .tour-list th {
-  background: #eebbc3;
-  color: #232946;
+  /* background: #eebbc3; */
+  background: var(--SecondaryColor);
+  color: var(--whiteColor);
   font-weight: 600;
 }
 
@@ -156,7 +174,7 @@
 }
 
 .tour-list button {
-  background: #232946;
+  background: var(--gradientColor);
   color: #fff;
   border: none;
   padding: 0.4rem 0.9rem;
@@ -167,8 +185,9 @@
 }
 
 .tour-list button:hover {
-  background: #eebbc3;
-  color: #232946;
+  /* background: #eebbc3; */
+  background: var(--SecondaryColor);
+  color: var(--whiteColor);
 }
 
 .tour-list .btn-delete {
@@ -194,14 +213,14 @@
 }
 
 .btn-submit {
-  background: #232946;
-  color: #fff;
+  background: var(--SecondaryColor);
+  color: var(--whiteColor) ;
   margin-right: 1rem;
 }
 
 .btn-submit:hover {
-  background: #eebbc3;
-  color: #232946;
+  background: var(---whiteColorDean);
+  color: var(--blackColor);
 }
 
 .btn-cancel {

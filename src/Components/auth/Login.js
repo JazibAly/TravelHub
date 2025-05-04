@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import "./login.css";
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -61,7 +62,7 @@ const Login = () => {
                                     Login
                                 </button>
                             </form>
-                            <p className="mt-3 text-center">
+                            <p className="mt-3">
                                 Don't have an account?{' '}
                                 <button
                                     className="btn btn-link p-0"
